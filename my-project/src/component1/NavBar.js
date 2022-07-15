@@ -10,7 +10,7 @@ const NavBar = () => {
           <ul>
             <li>
               <NavLink
-                to="/project"
+                to="/Dashboard"
                 className={(navData) => (navData.isActive ? styles.active : "")}
               >
                 Dashboard

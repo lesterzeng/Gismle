@@ -4,10 +4,9 @@ const Members = (props) => {
   return (
     <div
       className="h-screen flex flex-col 
-                    items-center justify-center"
+                    items-center "
     >
-      <p className="text-green-700 text-xl mb-3">Welcome back!!</p>
-
+      <p className="text-gray-700 text-xl mb-1">Welcome back!!</p>
       <form onSubmit={props.handleSubmit}>
         <input
           aria-label="Enter your email address"
@@ -28,7 +27,7 @@ const Members = (props) => {
           onChange={props.handleNewPassword}
         />
 
-        <button type="submit" className="bg-green-400 w-full mt-4">
+        <button type="submit" className="bg-gray-400 w-full mt-4">
           Login
         </button>
       </form>

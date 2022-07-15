@@ -23,9 +23,8 @@ function App() {
   };
   return (
     <div className="App">
-      <h1 className="text-80xl font-bold underline">Hello world!</h1>
       <div>
-        <h4 className="time">{new Date().toLocaleString()}</h4>
+        {/* <h4 className="time">{new Date().toLocaleString()}</h4> */}
         <h2 className="welcome">
           Welcome to <span className="gismle">Hello</span> App
         </h2>

@@ -4,7 +4,7 @@ const Form = (props) => {
   return (
     <div
       className="h-screen flex flex-col 
-    items-center justify-center"
+    items-center "
     >
       <form onSubmit={props.handleSubmit}>
         <div className="relative z-0 mb-6 w-full group">
