@@ -9,12 +9,10 @@ const Completed = () => {
         <form>
           <input
             type="text"
-            placeholder="Add a new task..."
+            placeholder="  ....Empty........"
             className="completedAdd"
           />
-          <button>check</button>
         </form>
-        <card className="card">still empty</card>
       </div>
     </>
   );
