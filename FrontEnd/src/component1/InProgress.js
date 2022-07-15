@@ -1,32 +1,35 @@
 import React from "react";
 import "./TodoList.css";
 
-const TodoList = (props) => {
-  //==list of todolist + remove ==//
-  let things = props.tasks.map((d, i) => {
+const InProgress = (props) => {
+  let things = props.onGoingTask.map((d, i) => {
     return (
       <>
-        <li key={i}>{d.todoList}</li>
-        {<button onClick={() => props.handleRemove(i)}> remove</button>}
+        <li key={i}>{d.onGoing}</li>
+        {/* {
+          <button onClick={() => props.handleRemove(i)} className="button-74">
+            remove
+          </button>
+        } */}
       </>
     );
   });
-
   return (
     <>
-      <div className="todoContainer">
-        <h1>ToDoList</h1>
-        <form onSubmit={props.handleTodoTasks}>
+      <div className="OngoingContainer">
+        <h1>In Progress</h1>
+        <form onSubmit={props.handleOnGoingTask2}>
           <input
             type="text"
             placeholder="Add a new task..."
-            className="todoAdd"
-            onChange={props.handleTodoList}
-            value={props.todoList}
+            className="OngoingAdd"
+            value={props.onGoing}
+            onChange={props.handleOnGoingList}
           />
           <button type="submit">
+            {" "}
             <svg
-              className="w-6 h-6 dark:text-black "
+              class="w-6 h-6 dark:text-black "
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -40,10 +43,11 @@ const TodoList = (props) => {
               ></path>
             </svg>
           </button>
-          <li className="card">{things}</li>
+          <card className="card">{things}</card>
         </form>
       </div>
     </>
   );
 };
-export default TodoList;
+
+export default InProgress;

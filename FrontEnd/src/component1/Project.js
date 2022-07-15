@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TodoList from "./TodoList";
-import Ongoing from "./Ongoing";
+import InProgress from "./InProgress";
 import Completed from "./Completed";
 
 const Project = (props) => {
@@ -47,7 +47,7 @@ const Project = (props) => {
         todoList={todoList}
         handleRemove={handleRemove}
       />
-      <Ongoing
+      <InProgress
         handleOnGoingList={handleOnGoingList}
         handleOnGoingTask2={handleOnGoingTask2}
         onGoingTask={props.onGoingTask}
