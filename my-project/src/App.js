@@ -4,6 +4,7 @@ import NavBar from "./component1/NavBar";
 import Form from "./component2/LandingPage";
 // import Main from "./components/Main";
 import Project from "./component1/Project";
+import Dashboard from "./component2/Dashboard";
 
 function App() {
   const [newMemberData, setNewMemberData] = useState("");
@@ -31,20 +32,19 @@ function App() {
 
         <NavBar />
         <Routes>
-          <Route path="/" element={<Navigate replace to="/home" />} />
-          <Route path="/project" element={<Project />} />
-          {/* <Route
+          <Route path="/" element={<Navigate replace to="/dashboard" />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
             path="/cards"
             element={
-              <Main
+              <Project
                 addToNewTasks={addToNewTasks}
                 tasks={tasks}
                 addOnGoingTasks2={addOnGoingTasks2}
                 onGoingTask={onGoingTask}
               />
             }
-          /> */}
-
+          />
           <Route
             path="/form/*"
             element={

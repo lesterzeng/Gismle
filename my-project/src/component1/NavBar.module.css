@@ -14,25 +14,25 @@
   margin: 0;
   align-items: right;
   justify-content: right;
-  font-size: 10px;
+  font-size: 9px;
 }
 
 .navbar li {
   margin: 0 1rem;
-  width: 4rem;
+  width: 5rem;
 }
 
 .navbar a {
-  color: #d0dde3;
+  color: dark;
   text-decoration: none;
 }
 
 .navbar a:hover,
 .navbar a:active,
 .navbar a.active {
-  color: #65a3ab;
+  color: black;
   padding-bottom: 0.25rem;
-  border-bottom: 4px solid #52a2c7;
+  border-bottom: 4px solid darkslategray;
 }
 
 .members a {
@@ -43,9 +43,9 @@
 .members a:hover,
 .members a:active,
 .members a.active {
-  color: #65a3ab;
+  color: Black;
   padding-bottom: 0.25rem;
-  border-bottom: 4px solid #52a2c7;
+  border-bottom: 4px solid Black;
 }
 
 .formData {

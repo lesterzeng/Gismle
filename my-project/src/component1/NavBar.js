@@ -16,14 +16,14 @@ const NavBar = () => {
                 Dashboard
               </NavLink>
             </li>
-            {/* <li>
+            <li>
               <NavLink
                 to="/cards"
                 className={(navData) => (navData.isActive ? styles.active : "")}
               >
                 Cards
               </NavLink>
-            </li> */}
+            </li>
 
             <li>
               <NavLink
