@@ -1,0 +1,54 @@
+.navbar {
+  height: 3rem;
+}
+
+.navbar nav {
+  height: 100%;
+}
+
+.navbar ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: right;
+  justify-content: right;
+  font-size: 10px;
+}
+
+.navbar li {
+  margin: 0 1rem;
+  width: 4rem;
+}
+
+.navbar a {
+  color: #d0dde3;
+  text-decoration: none;
+}
+
+.navbar a:hover,
+.navbar a:active,
+.navbar a.active {
+  color: #65a3ab;
+  padding-bottom: 0.25rem;
+  border-bottom: 4px solid #52a2c7;
+}
+
+.members a {
+  color: #d0dde3;
+  text-decoration: none;
+}
+
+.members a:hover,
+.members a:active,
+.members a.active {
+  color: #65a3ab;
+  padding-bottom: 0.25rem;
+  border-bottom: 4px solid #52a2c7;
+}
+
+.formData {
+  font-size: 30px;
+  color: azure;
+}
