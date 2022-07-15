@@ -4,7 +4,6 @@ import NavBar from "./component1/NavBar";
 import Form from "./component1/Form";
 import Main from "./component2/Main";
 import Project from "./component1/Project";
-import Empty1 from "./component1/Empty1";
 
 function App() {
   const [newMemberData, setNewMemberData] = useState("");
@@ -27,15 +26,15 @@ function App() {
       <div>
         <h4 className="time">{new Date().toLocaleString()}</h4>
         <h2 className="welcome">
-          Welcome to <span className="gismle">Gismle</span> management App
+          Welcome to <span className="gismle">Hello</span> App
         </h2>
 
         <NavBar />
         <Routes>
           <Route path="/" element={<Navigate replace to="/home" />} />
-          <Route path="/home" element={<Project />} />
+          <Route path="/project" element={<Project />} />
           <Route
-            path="/page-two"
+            path="/cards"
             element={
               <Main
                 addToNewTasks={addToNewTasks}
@@ -45,9 +44,9 @@ function App() {
               />
             }
           />
-          <Route path="/page-three" element={<Empty1 />} />
+
           <Route
-            path="/page-four/*"
+            path="/form/*"
             element={
               <Form
                 newMemberDetail={newMemberDetail}

@@ -10,7 +10,7 @@ const NavBar = () => {
           <ul>
             <li>
               <NavLink
-                to="/home"
+                to="/project"
                 className={(navData) => (navData.isActive ? styles.active : "")}
               >
                 Dashboard
@@ -18,26 +18,19 @@ const NavBar = () => {
             </li>
             <li>
               <NavLink
-                to="/page-two"
+                to="/cards"
                 className={(navData) => (navData.isActive ? styles.active : "")}
               >
-                Card
+                Cards
               </NavLink>
             </li>
+
             <li>
               <NavLink
-                to="/page-three"
+                to="/form"
                 className={(navData) => (navData.isActive ? styles.active : "")}
               >
-                Empty2
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/page-four"
-                className={(navData) => (navData.isActive ? styles.active : "")}
-              >
-                Log in/Sign In
+                Sign up /log in
               </NavLink>
             </li>
           </ul>
