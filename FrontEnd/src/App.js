@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import NavBar from "./component1/NavBar";
-import Form from "./component2/LandingPage";
+import LandingPage from "./component2/LandingPage";
 import Project from "./component1/Project";
 import Dashboard from "./component2/Dashboard";
-import img1 from "./pen.jpg";
+import AboutUs from "./component1/aboutUs/AboutUs";
 
 // import "./component1/MainPage.css";
 
@@ -25,16 +25,8 @@ function App() {
   };
 
   return (
-    <div className="bg-slate-300">
-      <div>
-        <img src={img1} alt="" className="h-20"></img>
-      </div>
-      <h2 className="text-6xl font-extrabold ...">
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-gray-500">
-          {" "}
-          .GISMLE APP
-        </span>
-      </h2>
+    <div className="bg-sky-300">
+      <h2 className="text-6xl font-extrabold ... "></h2>
       <div>
         <NavBar />
         <Routes>
@@ -53,14 +45,16 @@ function App() {
             }
           />
           <Route
-            path="/form/*"
+            path="/aboutus"
             element={
-              <Form
-                newMemberDetail={newMemberDetail}
-                newMemberData={newMemberData}
-              />
+              <AboutUs />
+              // <Form
+              //   newMemberDetail={newMemberDetail}
+              //   newMemberData={newMemberData}
+              // />
             }
           />
+          <Route path="/landingPage" element={<LandingPage />} />
         </Routes>
       </div>
     </div>

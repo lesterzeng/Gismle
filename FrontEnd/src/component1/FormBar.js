@@ -4,8 +4,9 @@ import styles from "./NavBar.module.css";
 
 const FormBar = () => {
   return (
-    <div>
-      <h2>Do u have an account?</h2>
+    // <div>
+    {
+      /* <h2>Do u have an account?</h2>
       <div className={styles.navbar}>
         <nav>
           <ul>
@@ -28,7 +29,8 @@ const FormBar = () => {
           </ul>
         </nav>
       </div>
-    </div>
+    </div> */
+    }
   );
 };
 

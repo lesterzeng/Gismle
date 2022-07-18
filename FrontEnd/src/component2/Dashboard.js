@@ -1,6 +1,5 @@
 import React from "react";
-import Project from "../component1/Project";
-import ListOfBoards from "../component1/ListOfBoards";
+import ListOfBoards from "../component1/dashboard/ListOfBoards";
 
 const Dashboard = () => {
   return (
