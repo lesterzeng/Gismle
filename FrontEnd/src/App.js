@@ -5,6 +5,7 @@ import Form from "./component2/LandingPage";
 import Project from "./component1/Project";
 import Dashboard from "./component2/Dashboard";
 import img1 from "./pen.jpg";
+
 // import "./component1/MainPage.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
   const newMemberDetail = (item) => {
     setNewMemberData([...newMemberData, item]);
   };
+
   return (
     <div className="bg-slate-300">
       <div>
