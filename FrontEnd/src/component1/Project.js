@@ -7,7 +7,6 @@ const Project = (props) => {
   const [todoList, setTodoList] = useState("");
   const [updateList, setUpdateList] = useState([]);
   const [onGoing, setOnGoing] = useState("");
-  const [afterRemove, setAfterRemove] = useState("");
 
   const handleTodoTasks = (event) => {
     event.preventDefault();
@@ -54,9 +53,6 @@ const Project = (props) => {
         onGoing={onGoing}
       />
       <Completed />
-
-      {/* 
-//==comment form==// */}
     </div>
   );
 };

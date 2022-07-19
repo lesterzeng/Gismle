@@ -1,5 +1,4 @@
 import React from "react";
-import "./TodoList.css";
 
 const InProgress = (props) => {
   let things = props.onGoingTask.map((d, i) => {

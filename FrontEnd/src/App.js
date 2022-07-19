@@ -7,7 +7,7 @@ import Dashboard from "./component2/Dashboard";
 import AboutUs from "./component1/aboutUs/AboutUs";
 
 // import "./component1/MainPage.css";
-
+// "tw-elements": "^1.0.0-alpha12",
 function App() {
   const [newMemberData, setNewMemberData] = useState("");
   const [tasks, setTasks] = useState([]);
@@ -25,8 +25,7 @@ function App() {
   };
 
   return (
-    <div className="bg-sky-300">
-      <h2 className="text-6xl font-extrabold ... "></h2>
+    <div>
       <div>
         <NavBar />
         <Routes>
