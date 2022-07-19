@@ -1,48 +1,46 @@
 import React from "react";
 
 const InProgress = (props) => {
-  let things = props.onGoingTask.map((d, i) => {
+  let things = props.lists.map((d, i) => {
     return (
       <>
-        <li key={i}>{d.onGoing}</li>
-        {/* {
-          <button onClick={() => props.handleRemove(i)} className="button-74">
-            remove
-          </button>
-        } */}
+        {/* <li key={i}>{d.todoList}</li> */}
+
+        <div className="rounded overflow-hidden shadow-lg bg-white border-b-4">
+          <div className="px-6 py-4">
+            <div className="font-bold text-xl mb-2">{d.todoList}</div>
+            <p className="text-gray-700 text-base">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </p>
+          </div>
+          <div className=" px-6  pb-2 text-right w-80 float-right">
+            <div className="flex  p-2 w-full justify-center space-x-0">
+              <button
+                // onClick={() => props.handleRemove(i)}
+                className="min-w-auto w-15 h-10 bg-red-300 p-2 rounded-l-full hover:bg-red-500  text-white font-semibold  hover:flex-grow transition-all duration-200 ease-in-out"
+              >
+                Delete
+              </button>{" "}
+              <button className="min-w-auto w-15 h-10 bg-blue-300 p-2 rounded-none hover:bg-blue-500 text-white font-semibold  hover:flex-grow transition-all duration-200 ease-in-out">
+                Edit
+              </button>
+              <button className="min-w-auto w-15 h-10 bg-green-300 p-2 rounded-r-full hover:bg-green-500 text-white font-semibold hover:flex-grow transition-all duration-200 ease-in-out">
+                Move
+              </button>
+            </div>
+          </div>
+        </div>
       </>
     );
   });
+
   return (
     <>
       <div className="OngoingContainer">
         <h1>In Progress</h1>
-        <form onSubmit={props.handleOnGoingTask2}>
-          <input
-            type="text"
-            placeholder="Add a new task..."
-            className="OngoingAdd"
-            value={props.onGoing}
-            onChange={props.handleOnGoingList}
-          />
-          <button type="submit">
-            {" "}
-            <svg
-              class="w-6 h-6 dark:text-black "
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
-              ></path>
-            </svg>
-          </button>
-          <card className="card">{things}</card>
+        <form>
+          <button type="submit"> </button>
+          {/* {things} */}
         </form>
       </div>
     </>

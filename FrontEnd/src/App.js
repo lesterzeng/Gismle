@@ -6,23 +6,41 @@ import Project from "./component1/Project";
 import Dashboard from "./component2/Dashboard";
 import AboutUs from "./component1/aboutUs/AboutUs";
 
-// import "./component1/MainPage.css";
-// "tw-elements": "^1.0.0-alpha12",
 function App() {
-  const [newMemberData, setNewMemberData] = useState("");
-  const [tasks, setTasks] = useState([]);
-  const [onGoingTask, setOnGoingTask] = useState([]);
+  // const [newMemberData, setNewMemberData] = useState("");
+  const [tasks, setTasks] = useState([""]);
+  const [lists, setlists] = useState([""]);
+  const [completed, setCompleted] = useState("");
 
   const addToNewTasks = (item) => {
     setTasks([...tasks, item]);
   };
-  const addOnGoingTasks2 = (item) => {
-    setOnGoingTask([...onGoingTask, item]);
+
+  // const removeFromTodoList = (item) => {
+  //   const liststaskslists = tasks.filter((d, i) => i !== item);
+  //   setTasks(liststaskslists);
+  // };
+
+  const addToInProgress = (item, index) => {
+    setlists([...lists, item]);
+    const newList = tasks.filter((d, i) => i !== index);
+    setTasks(newList);
   };
 
-  const newMemberDetail = (item) => {
-    setNewMemberData([...newMemberData, item]);
+  const addToCompleted = (item, index) => {
+    setCompleted([...lists, item]);
+    const newList2 = completed.filter((d, i) => i !== index);
+    setCompleted(newList2);
   };
+
+  // const removeFromInprogress = (index) => {
+  //   const listsArr = lists.filter((d, i) => i !== index);
+  //   setlists(listsArr);
+  // };
+
+  // const newMemberDetail = (item) => {
+  //   setNewMemberData([...newMemberData, item]);
+  // };
 
   return (
     <div>
@@ -37,9 +55,12 @@ function App() {
               <Project
                 addToNewTasks={addToNewTasks}
                 tasks={tasks}
-                addOnGoingTasks2={addOnGoingTasks2}
-                onGoingTask={onGoingTask}
                 setTasks={setTasks}
+                addToInProgress={addToInProgress}
+                lists={lists}
+                addToCompleted={addToCompleted}
+                // removeFromTodoList={removeFromTodoList}
+                // removeFromInprogress={removeFromInprogress}
               />
             }
           />
