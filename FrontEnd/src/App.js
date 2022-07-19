@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import NavBar from "./component1/NavBar";
-import LandingPage from "./component2/LandingPage";
-import Project from "./component1/Project";
-import Dashboard from "./component2/Dashboard";
-import AboutUs from "./component1/aboutUs/AboutUs";
+import NavBar from "./components/NavBar";
+import LandingPage from "./pages/LandingPage";
+import Project from "./components/Project";
+import Dashboard from "./pages/Dashboard";
+import AboutUs from "./components/aboutUs/AboutUs";
+import ErrorModal from "./components/ErrorModal";
+import { useSelector } from "react-redux";
 
 function App() {
   // const [newMemberData, setNewMemberData] = useState("");
   const [tasks, setTasks] = useState([""]);
   const [lists, setlists] = useState([""]);
   const [completed, setCompleted] = useState("");
+
+  const storeIsError = useSelector((state) => state.getThingsDone.isError);
 
   const addToNewTasks = (item) => {
     setTasks([...tasks, item]);
@@ -43,41 +47,44 @@ function App() {
   // };
 
   return (
-    <div>
+    <>
+      {storeIsError && <ErrorModal />}
       <div>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Navigate replace to="/dashboard" />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route
-            path="/cards"
-            element={
-              <Project
-                addToNewTasks={addToNewTasks}
-                tasks={tasks}
-                setTasks={setTasks}
-                addToInProgress={addToInProgress}
-                lists={lists}
-                addToCompleted={addToCompleted}
-                // removeFromTodoList={removeFromTodoList}
-                // removeFromInprogress={removeFromInprogress}
-              />
-            }
-          />
-          <Route
-            path="/aboutus"
-            element={
-              <AboutUs />
-              // <Form
-              //   newMemberDetail={newMemberDetail}
-              //   newMemberData={newMemberData}
-              // />
-            }
-          />
-          <Route path="/landingPage" element={<LandingPage />} />
-        </Routes>
+        <div>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Navigate replace to="/landingpage" />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route
+              path="/cards"
+              element={
+                <Project
+                  addToNewTasks={addToNewTasks}
+                  tasks={tasks}
+                  setTasks={setTasks}
+                  addToInProgress={addToInProgress}
+                  lists={lists}
+                  addToCompleted={addToCompleted}
+                  // removeFromTodoList={removeFromTodoList}
+                  // removeFromInprogress={removeFromInprogress}
+                />
+              }
+            />
+            <Route
+              path="/aboutus"
+              element={
+                <AboutUs />
+                // <Form
+                //   newMemberDetail={newMemberDetail}
+                //   newMemberData={newMemberData}
+                // />
+              }
+            />
+            <Route path="/landingPage" element={<LandingPage />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
