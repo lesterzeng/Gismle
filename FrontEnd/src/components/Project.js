@@ -1,11 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import TodoList from "./TodoList";
+import { useSelector, useDispatch } from "react-redux";
 // import InProgress from "./InProgress";
 // import Completed from "./Completed";
 
 const Project = (props) => {
   const [todoList, setTodoList] = useState("");
   const [updateList, setUpdateList] = useState([]);
+  const [toDoCards, setToDoCards] = useState([]);
+
+  const storetokenAccess = useSelector(
+    (state) => state.getThingsDone.token.access
+  );
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch("http://localhost:5000/boards/display/cards/toDo", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        authorization: "Bearer " + storetokenAccess,
+      },
+      body: JSON.stringify({ boardId: id }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setToDoCards(data);
+      })
+      .catch((error) => {
+        console.log("Connection Error", error.message);
+      });
+  }, []);
 
   const handleTodoTasks = (event) => {
     event.preventDefault();
@@ -42,10 +71,11 @@ const Project = (props) => {
 
   return (
     <div>
+      {id}
       <TodoList
         handleTodoList={handleTodoList}
         handleTodoTasks={handleTodoTasks}
-        tasks={props.tasks}
+        tasks={toDoCards}
         updateList={updateList}
         todoList={todoList}
         handleRemove={handleRemove}

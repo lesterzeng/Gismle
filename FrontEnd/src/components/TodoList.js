@@ -3,6 +3,7 @@ import React from "react";
 // const TodoList = (props) => {
 
 function TodoList(props) {
+  console.log(props.tasks);
   //==list of todolist==/
   let things = props.tasks.map((d, i) => {
     return (
@@ -12,11 +13,8 @@ function TodoList(props) {
           className="rounded overflow-hidden shadow-lg bg-white border-b-4"
         >
           <div className="px-6 py-4">
-            <div className="font-bold text-xl mb-2">{d.todoList}</div>
-            <p className="text-gray-700 text-base">
-              (later add edit function)Lorem ipsum dolor sit amet, consectetur
-              adipisicing elit.
-            </p>
+            <div className="font-bold text-xl mb-2">{d.actionTitle}</div>
+            <p className="text-gray-700 text-base">{d.actionDesc}</p>
           </div>
           <div className=" px-6  pb-2 text-right w-80 float-right">
             <div className="flex  p-2 w-full justify-center space-x-0">

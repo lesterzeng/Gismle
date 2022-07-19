@@ -56,7 +56,7 @@ function App() {
             <Route path="/" element={<Navigate replace to="/landingpage" />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route
-              path="/cards"
+              path="/cards/:id"
               element={
                 <Project
                   addToNewTasks={addToNewTasks}

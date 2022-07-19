@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  // const storeAllBoardsInfo = useSelector(
-  //   (state) => state.getThingsDone.allBoardsInfo
-  // );
+  const storeAllBoardsInfo = useSelector(
+    (state) => state.getThingsDone.allBoardsInfo
+  );
   const storetokenAccess = useSelector(
     (state) => state.getThingsDone.token.access
   );

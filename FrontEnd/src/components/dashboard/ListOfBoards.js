@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import Data from "../BoardData";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const ListOfBoards = () => {
+  const storeAllBoardsInfo = useSelector(
+    (state) => state.getThingsDone.allBoardsInfo
+  );
+
+  const navigate = useNavigate();
+
   const [board, setnewboard] = useState([]);
   const [clicked, setClicked] = useState(false);
   //random btn--> show the lists of data(object (title decs))
@@ -19,7 +27,7 @@ const ListOfBoards = () => {
   );
 
   // const handleViewMore = () => {
-  //==View more==//
+  // // ==View more==//
   // const displaySeeMore = Data.map(
   //   ({ BoardTitle, todolist, inProgress, completed }) => {
   //     return <h1>View More: {todolist}</h1>;
@@ -73,39 +81,25 @@ const ListOfBoards = () => {
               </button>
             </div>
           </div>
-          <div>
-            <div className="flex mb-4 items-center">
-              <p className="w-full text-grey-700"> {displayData[0]}</p>
-              <button
-                className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-green text-green border-green-700 hover:bg-green-700"
-                // onClick={handleViewMore}
-              >
-                View More
-              </button>
+          {storeAllBoardsInfo.map((board, i) => (
+            <div key={board._id}>
+              <div className="flex mb-4 items-center">
+                <p className="w-full text-grey-700"> {board.title}</p>
+                <button
+                  className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-green text-green border-green-700 hover:bg-green-700"
+                  onClick={() => {
+                    navigate(`/cards/${board._id}`);
+                  }}
+                >
+                  View More
+                </button>
 
-              <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red-700 border-red-700 hover:text-white hover:bg-red-700">
-                Remove
-              </button>
+                <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red-700 border-red-700 hover:text-white hover:bg-red-700">
+                  Remove
+                </button>
+              </div>
             </div>
-            <div className="flex mb-4 items-center">
-              <p className="w-full text-grey-darkest"> {displayData[1]}</p>
-              <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-green text-green border-green-700 hover:bg-green-700">
-                View More
-              </button>
-              <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red-700 border-red-700 hover:text-white hover:bg-red-700">
-                Remove
-              </button>
-            </div>
-            <div className="flex mb-4 items-center">
-              <p className="w-full text-grey-darkest">{displayData[2]}</p>
-              <button className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-green text-green border-green-700 hover:bg-green-700">
-                View More
-              </button>
-              <button className="flex-no-shrink p-2 ml-2 border-2 rounded text-red-700 border-red-700 hover:text-white hover:bg-red-700">
-                Remove
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
