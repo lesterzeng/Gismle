@@ -10,6 +10,8 @@ const Project = (props) => {
   const [updateList, setUpdateList] = useState([]);
   const [toDoCards, setToDoCards] = useState([]);
 
+  const [counter, setCounter] = useState(0);
+
   const storetokenAccess = useSelector(
     (state) => state.getThingsDone.token.access
   );
@@ -34,15 +36,33 @@ const Project = (props) => {
       .catch((error) => {
         console.log("Connection Error", error.message);
       });
-  }, []);
+  }, [counter]);
 
   const handleTodoTasks = (event) => {
     event.preventDefault();
-    const printTasks = { todoList };
-    setUpdateList({ todoList });
-    props.addToNewTasks(printTasks);
-    console.log(printTasks);
-    console.log(updateList);
+    fetch("http://localhost:5000/boards/create/card", {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        authorization: "Bearer " + storetokenAccess,
+      },
+      body: JSON.stringify({ boardId: id, actionTitle: todoList }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log("Connection Error", error.message);
+      });
+    setCounter(counter + 1);
+
+    // const printTasks = { todoList };
+    // setUpdateList({ todoList });
+    // props.addToNewTasks(printTasks);
+    // console.log(printTasks);
+    // console.log(updateList);
   };
 
   const handleTodoList = (event) => {
