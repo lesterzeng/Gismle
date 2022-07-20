@@ -24,9 +24,10 @@ const getThingsDoneSlice = createSlice({
 
     //============================== Data to Send
     registerData: {
+      name: "",
       email: "",
       password: "",
-      password2: "",
+      password1: "",
     },
 
     //============================== Login Button state
@@ -74,6 +75,28 @@ const getThingsDoneSlice = createSlice({
     ////////////////////////////////
     // Registration of New User
     ////////////////////////////////
+    //========== Store Register Data
+    inputRegisterDataEmail(state, action) {
+      state.registerData.email = action.payload.email;
+    },
+    inputRegisterDataName(state, action) {
+      state.registerData.name = action.payload.name;
+    },
+    inputRegisterDataPassword(state, action) {
+      state.registerData.password = action.payload.password;
+    },
+    inputRegisterDataPassword1(state, action) {
+      state.registerData.password1 = action.payload.password1;
+    },
+    //========== Clear Register Dataa
+    clearRegisterData(state) {
+      state.registerData = {
+        name: "",
+        email: "",
+        password: "",
+        password1: "",
+      };
+    },
 
     ////////////////////////////////
     // Dashboard
