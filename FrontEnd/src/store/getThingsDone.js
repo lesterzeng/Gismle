@@ -39,6 +39,16 @@ const getThingsDoneSlice = createSlice({
     allBoardsInfo: [],
 
     ////////////////////////////////
+    // Project
+    ////////////////////////////////
+    //============================== Data to Receive
+    toDoList: [],
+    inProgressList: [],
+    completedList: [],
+
+    buttonToggle: true,
+
+    ////////////////////////////////
     // Error Handling
     ////////////////////////////////
     isError: false,
@@ -104,6 +114,27 @@ const getThingsDoneSlice = createSlice({
     //============================== Store boards info
     storeAllBoardsInfo(state, action) {
       state.allBoardsInfo = action.payload.allBoardsInfo;
+    },
+
+    ////////////////////////////////
+    // Project
+    ////////////////////////////////
+    //============================== Store boards info
+
+    storeToDoList(state, action) {
+      state.toDoList = action.payload.toDoList;
+    },
+    storeInProgressList(state, action) {
+      state.inProgressList = action.payload.inProgressList;
+    },
+    storeCompletedList(state, action) {
+      state.completedList = action.payload.completedList;
+    },
+
+    //============================== Toggle Button state in Project List
+
+    toggleButtonToggle(state) {
+      state.buttonToggle = !state.buttonToggle;
     },
 
     ////////////////////////////////

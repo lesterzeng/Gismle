@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import LandingPage from "./pages/LandingPage";
-import Project from "./components/Project";
+import Project from "./pages/Project";
 import Dashboard from "./pages/Dashboard";
 import AboutUs from "./components/aboutUs/AboutUs";
 import ErrorModal from "./components/ErrorModal";
@@ -55,21 +55,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate replace to="/landingpage" />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route
-              path="/cards/:id"
-              element={
-                <Project
-                  addToNewTasks={addToNewTasks}
-                  tasks={tasks}
-                  setTasks={setTasks}
-                  addToInProgress={addToInProgress}
-                  lists={lists}
-                  addToCompleted={addToCompleted}
-                  // removeFromTodoList={removeFromTodoList}
-                  // removeFromInprogress={removeFromInprogress}
-                />
-              }
-            />
+            <Route path="/cards/:id" element={<Project />} />
             <Route
               path="/aboutus"
               element={

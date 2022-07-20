@@ -9,6 +9,9 @@ const Dashboard = () => {
   const storeAllBoardsInfo = useSelector(
     (state) => state.getThingsDone.allBoardsInfo
   );
+  const storeButtonToggle = useSelector(
+    (state) => state.getThingsDone.buttonToggle
+  );
 
   const storetokenAccess = useSelector(
     (state) => state.getThingsDone.token.access
@@ -33,7 +36,6 @@ const Dashboard = () => {
               allBoardsInfo: data,
             })
           );
-          navigate("/dashboard");
         }
         if (data.status === "error") {
           console.log("got error");
@@ -47,8 +49,7 @@ const Dashboard = () => {
       .catch((error) => {
         console.log("Connection Error", error.message);
       });
-    dispatch(getThingsDoneActions.clearLoginData());
-  }, []);
+  }, [storeButtonToggle]);
 
   return (
     <div>
