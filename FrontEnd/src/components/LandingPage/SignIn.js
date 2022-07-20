@@ -13,7 +13,7 @@ const SignIn = () => {
     (state) => state.getThingsDone.loginData.password
   );
   const storeLoginData = useSelector((state) => state.getThingsDone.loginData);
-  
+
   const navigate = useNavigate();
 
   const handleSubmit = () => {
@@ -34,6 +34,7 @@ const SignIn = () => {
               token: data,
             })
           );
+          localStorage.setItem("token", data.access);
           navigate("/dashboard");
         }
         if (data.status === "error") {

@@ -9,16 +9,19 @@ const Dashboard = () => {
   const storeAllBoardsInfo = useSelector(
     (state) => state.getThingsDone.allBoardsInfo
   );
+
   const storetokenAccess = useSelector(
     (state) => state.getThingsDone.token.access
   );
   console.log(storetokenAccess);
   const navigate = useNavigate();
 
+  const token = localStorage.getItem("token");
+
   useEffect(() => {
     fetch("http://localhost:5000/boards/display/boards/all", {
       headers: {
-        authorization: "Bearer " + storetokenAccess,
+        authorization: "Bearer " + token,
       },
     })
       .then((response) => response.json())
