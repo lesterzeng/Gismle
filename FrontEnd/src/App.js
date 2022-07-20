@@ -7,6 +7,8 @@ import Dashboard from "./pages/Dashboard";
 import AboutUs from "./components/aboutUs/AboutUs";
 import ErrorModal from "./components/ErrorModal";
 import { useSelector } from "react-redux";
+import Modal from "./components/Modal";
+import Modal2 from "./components/Modal2";
 
 function App() {
   // const [newMemberData, setNewMemberData] = useState("");
@@ -69,6 +71,8 @@ function App() {
             <Route path="/landingPage" element={<LandingPage />} />
           </Routes>
         </div>
+        <Modal />
+        <Modal2 />
       </div>
     </>
   );

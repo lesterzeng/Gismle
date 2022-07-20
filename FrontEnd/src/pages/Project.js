@@ -5,8 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getThingsDoneActions } from "../store/getThingsDone";
 import InProgress from "../components/Project/InProgress";
 import Completed from "../components/Project/Completed";
-// import InProgress from "./InProgress";
-// import Completed from "./Completed";
+import Modal from "../components/Modal";
 
 const Project = (props) => {
   const dispatch = useDispatch();

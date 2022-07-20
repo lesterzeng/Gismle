@@ -83,56 +83,8 @@ const ListOfBoards = (props) => {
       });
   };
 
-  // const [board, setnewboard] = useState([]);
-  // const [clicked, setClicked] = useState(false);
-  //random btn--> show the lists of data(object (title decs))
-
-  // const handleAddBtn = (e) => {
-  //   e.preventDefault();
-  //   setClicked(clicked);
-  //   console.log("handleclicked");
-  // };
-
-  // const displayData = Data.map(
-  //   ({ BoardTitle, todolist, inProgress, completed }) => {
-  //     return <h1> {BoardTitle}</h1>;
-  //   }
-  // );
-
-  // const handleViewMore = () => {
-  // // ==View more==//
-  // const displaySeeMore = Data.map(
-  //   ({ BoardTitle, todolist, inProgress, completed }) => {
-  //     return <h1>View More: {todolist}</h1>;
-  //   }
-  // );
-  //note: clicked --> send ID--> use Effect--> card information
-
-  // const displaySeeMore2 = Data.map(
-  //   ({ BoardTitle, todolist, inProgress, completed }) => {
-  //     return <h1>View More: {Data.Math.floor(Math.random())}</h1>;
-  //   }
-  // );
-
-  // useEffect(() => {
-  //   console.log("useEffect");
-  //   return () => {
-  //     if (clicked) {
-  //       setClicked("hihi");
-  //     }
-  //   };
-  // }, [clicked]);
-
-  //======*1. add fetch to create a new board*//
-  //======*1. add fetch to create a new board*//
-  //======*1. add fetch to create a new board*//
-  // fromBackEnd: board;
-
   return (
     <div>
-      {/* {board} */}
-      {/* {displayData} */}
-      {/* {displaySeeMore} */}
       <div className="h-100 w-full flex items-center justify-center bg-blue-100 font-sans">
         <div className="bg-orange-100 rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
           <div className="mb-4">
@@ -148,9 +100,8 @@ const ListOfBoards = (props) => {
                 value={inputBoardTitle}
               />
               <button
-                // onClick={handleAddBtn}
                 type="submit"
-                className="flex-no-shrink p-2 border-2 rounded text-blue-700 border-blue-500 hover:text-white hover:bg-green-700"
+                className="min-w-auto w-14 h-14 bg-red-300 p-2 rounded-full hover:bg-red-500 text-white font-semibold transition-rotation duration-300 hover:-rotate-45 ease-in-out"
                 onClick={() => {
                   addBoard();
                 }}
@@ -163,20 +114,79 @@ const ListOfBoards = (props) => {
             <div key={board._id}>
               <div className="flex mb-4 items-center">
                 <p className="w-full text-grey-700"> {board.title}</p>
+
+                {/* <div class="bg-white p-4"> */}
                 <button
-                  className="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-green text-green border-green-700 hover:bg-green-700"
+                  className="inline-flex items-center px-2 py-1 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium rounded-md"
+                  //   onClick={() => {
+                  //     navigate(`/cards/${board._id}`);
+                  //   }}
+                >
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal2"
+                  >
+                    {" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+                      />
+                    </svg>
+                    Edit
+                  </button>
+                </button>
+                <button
+                  className="inline-flex items-center px-2 py-1 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium rounded-md"
                   onClick={() => {
                     navigate(`/cards/${board._id}`);
                   }}
                 >
-                  View More
+                  <svg
+                    class="w-6 h-6 dark:text-black"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                    ></path>
+                  </svg>
+                  View
                 </button>
 
                 <button
-                  className="flex-no-shrink p-2 ml-2 border-2 rounded text-red-700 border-red-700 hover:text-white hover:bg-red-700"
+                  className="inline-flex items-center px-2 py-1 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md"
                   onClick={() => handleRemove(board._id)}
                 >
-                  Remove
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                    />
+                  </svg>
+                  Delete
                 </button>
               </div>
             </div>

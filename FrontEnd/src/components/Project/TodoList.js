@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getThingsDoneActions } from "../../store/getThingsDone";
+import Modal from "../../components/Modal";
 
 const TodoList = (props) => {
   const dispatch = useDispatch();
@@ -169,8 +170,22 @@ const TodoList = (props) => {
                   >
                     Delete
                   </button>{" "}
-                  <button className="min-w-auto w-15 h-10 bg-blue-300 p-2 rounded-none hover:bg-blue-500 text-white font-semibold  hover:flex-grow transition-all duration-200 ease-in-out">
-                    Edit
+                  <button
+                    className="min-w-auto w-15 h-10 bg-blue-300 p-2 rounded-none hover:bg-blue-500 text-white font-semibold  hover:flex-grow transition-all duration-200 ease-in-out "
+                    // type="button"
+                    // data-modal-toggle="defaultModal"
+                    // data-bs-target="#exampleModalScrollable"
+                  >
+                    {" "}
+                    <button
+                      // className=" transition duration-150 ease-in-out"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    >
+                      {" "}
+                      Edit
+                    </button>
                   </button>
                   <button
                     onClick={() => moveCard(d._id)}
@@ -188,8 +203,3 @@ const TodoList = (props) => {
   );
 };
 export default TodoList;
-
-/*
-
-
-*/
