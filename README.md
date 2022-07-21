@@ -6,18 +6,43 @@ is the flexible work management tool where teams can ideate plans :memo:
 :pencil:, collaborate on projects :file_folder:, organize workflows :chart_with_downwards_trend:, and track progress :round_pushpin:in a
 visual,productive, and rewarding way. From brainstorm to planning to execution, Gismle manages the big milestones and the day-to-day tasks of working together and getting things done.
 
-### component model :bulb:
-
-![Project 3 backend stuff](https://user-images.githubusercontent.com/44399805/180172034-b1b4e020-f482-4ee4-8fa1-577934a4d178.png)
-
-### Usage :page_facing_up:
+## Description :page_facing_up:
 
  <li>View / manage any type of project :mag_right:</li>
       <li>workflow</li>
       <li>tasks tracking</li>
       <li>Add comments</li>
       <li>checklists</li>
-      
+
+
+
+## Technologies Used
+
+|Frontend     |Backend          |
+| ------------|-----------------|
+|tailwind     |express          |
+|tw-elements  |express-validator|
+|react-router |jsonwebtoken     |
+|redux toolkit|mongoose         |
+|react-icons  |uuid             |
+|             |dotenv           |
+|             |bcrypt           |
+|             |cors             |
+|             |nodemon          |
+
+
+
+
+
+### component model :bulb:
+
+![Project 3 backend stuff](https://user-images.githubusercontent.com/44399805/180172034-b1b4e020-f482-4ee4-8fa1-577934a4d178.png)
+
+### Usage 
+
+
+
+
 ## Getting Started
 
 ### signup / login Page
