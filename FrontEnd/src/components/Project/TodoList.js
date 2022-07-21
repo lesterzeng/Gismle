@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getThingsDoneActions } from "../../store/getThingsDone";
 import Modal from "../../components/Modal";
@@ -9,6 +9,10 @@ const TodoList = (props) => {
   const storeToDoList = useSelector((state) => state.getThingsDone.toDoList);
   // console.log(props.tasks);
   //==list of todolist==/
+
+  const storeButtonToggle = useSelector(
+    (state) => state.getThingsDone.buttonToggle
+  );
 
   const token = localStorage.getItem("token");
 
@@ -119,6 +123,24 @@ const TodoList = (props) => {
         console.log("Connection Error", error.message);
       });
   };
+  // useEffect(() => {
+  //   dispatch(
+  //     getThingsDoneActions.openCardModal({
+  //       cardModalDataId: storeToDoList._id,
+  //     })
+  //   );
+  // }, [storeButtonToggle]);
+
+  const handleOpenCardModal = (cardId, status) => {
+    console.log(cardId);
+    console.log(status);
+    dispatch(
+      getThingsDoneActions.openCardModal({
+        cardModalId: cardId,
+        cardModalStatus: status,
+      })
+    );
+  };
 
   return (
     <>
@@ -172,20 +194,14 @@ const TodoList = (props) => {
                   </button>{" "}
                   <button
                     className="min-w-auto w-15 h-10 bg-blue-300 p-2 rounded-none hover:bg-blue-500 text-white font-semibold  hover:flex-grow transition-all duration-200 ease-in-out "
-                    // type="button"
-                    // data-modal-toggle="defaultModal"
-                    // data-bs-target="#exampleModalScrollable"
+                    data-bs-toggle="modal"
+                    data-bs-target="#CardModalInfo"
+                    onClick={() =>
+                      handleOpenCardModal(d._id, d.status ? d.status : "")
+                    }
                   >
                     {" "}
-                    <button
-                      // className=" transition duration-150 ease-in-out"
-                      type="button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      {" "}
-                      Edit
-                    </button>
+                    Edit
                   </button>
                   <button
                     onClick={() => moveCard(d._id)}

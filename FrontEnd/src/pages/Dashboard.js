@@ -13,6 +13,10 @@ const Dashboard = () => {
     (state) => state.getThingsDone.buttonToggle
   );
 
+  const storeCardModalData = useSelector(
+    (state) => state.getThingsDone.cardModalData
+  );
+
   const storetokenAccess = useSelector(
     (state) => state.getThingsDone.token.access
   );
@@ -52,7 +56,8 @@ const Dashboard = () => {
   }, [storeButtonToggle]);
 
   return (
-    <div>
+    <div className="bg-blue-700">
+      {JSON.stringify(storeCardModalData)}
       <ListOfBoards />
     </div>
   );

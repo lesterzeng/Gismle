@@ -6,12 +6,14 @@ import { getThingsDoneActions } from "../store/getThingsDone";
 import InProgress from "../components/Project/InProgress";
 import Completed from "../components/Project/Completed";
 import Modal from "../components/Modal";
+import CardModal from "../components/Project/Project_Modals/CardModal";
+import EditCardModal from "../components/Project/Project_Modals/EditCardModal";
 
 const Project = (props) => {
   const dispatch = useDispatch();
-  // const storetokenAccess = useSelector(
-  //   (state) => state.getThingsDone.token.access
-  // );
+  const storeAllBoardsInfo = useSelector(
+    (state) => state.getThingsDone.allBoardsInfo
+  );
   const storeButtonToggle = useSelector(
     (state) => state.getThingsDone.buttonToggle
   );
@@ -22,6 +24,8 @@ const Project = (props) => {
   const token = localStorage.getItem("token");
 
   const { id } = useParams();
+
+  let boardsInfo = storeAllBoardsInfo.filter((obj) => obj._id === id);
 
   useEffect(() => {
     for (let i = 0; i < ListsOfCards.length; i++) {
@@ -90,8 +94,13 @@ const Project = (props) => {
 
   return (
     <div>
+      <div className="text-sky-500 text-5xl">
+        {boardsInfo[0] && boardsInfo[0].title}
+      </div>
       <div>
         <div className="grid grid-cols-3 gap-6 mt-4 w-full">
+          <EditCardModal boardId={id} />
+          <CardModal boardId={id} />
           <TodoList boardId={id} />
           <InProgress boardId={id} />
           <Completed boardId={id} />

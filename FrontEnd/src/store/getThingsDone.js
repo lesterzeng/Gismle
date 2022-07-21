@@ -47,6 +47,12 @@ const getThingsDoneSlice = createSlice({
     completedList: [],
 
     buttonToggle: true,
+    ////////////////////////////////
+    // CardModal
+    ////////////////////////////////
+
+    cardModalId: "",
+    cardModalStatus: "",
 
     ////////////////////////////////
     // Error Handling
@@ -136,6 +142,29 @@ const getThingsDoneSlice = createSlice({
     toggleButtonToggle(state) {
       state.buttonToggle = !state.buttonToggle;
     },
+    ////////////////////////////////
+    // CardModal
+    ////////////////////////////////
+
+    /*
+
+    cardModalData: {
+      id: ""
+      actionTitle: "",
+      actionDesc: "",
+      comments: [],
+      status: "",
+      createdBy: "",
+      updatedBy: "",
+      createdAt: "",
+      updatedAt: "",
+    },
+    */
+    openCardModal(state, action) {
+      state.cardModalId = action.payload.cardModalId;
+      state.cardModalStatus = action.payload.cardModalStatus;
+    },
+    closeCardModal(state) {},
 
     ////////////////////////////////
     // Error Handling

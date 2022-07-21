@@ -51,8 +51,8 @@ function App() {
   return (
     <>
       {storeIsError && <ErrorModal />}
-      <div>
-        <div>
+      <div className="bg-blue-200">
+        <div className="bg-blue-200">
           <NavBar />
           <Routes>
             <Route path="/" element={<Navigate replace to="/landingpage" />} />
