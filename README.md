@@ -1,6 +1,6 @@
 # Project-3---Gina-Ismail-Lester :desktop_computer:
 
-## GiSMLE Tasks Management tool :books:
+## GISMLE Tasks Management tool :books:
 
 is the flexible work management tool where teams can ideate plans :memo:
 :pencil:, collaborate on projects :file_folder:, organize workflows :chart_with_downwards_trend:, and track progress :round_pushpin:in a
@@ -14,9 +14,20 @@ visual,productive, and rewarding way. From brainstorm to planning to execution, 
 
  <li>View / manage any type of project :mag_right:</li>
       <li>workflow</li>
-      <li>task tracking</li>
-      <li>Add comment</li>
+      <li>tasks tracking</li>
+      <li>Add comments</li>
       <li>checklists</li>
       
-### Roadmap
-![](https://file%2B.vscode-resource.vscode-cdn.net/var/folders/7z/0421735x1pn3t6rm196dkkqh0000gn/T/TemporaryItems/NSIRD_screencaptureui_7Kh7zb/Screenshot%202022-07-21%20at%205.34.16%20PM.png?version%3D1658396073913)
+## Getting Started
+
+### signup / login Page
+
+![Sign in page](https://file%2B.vscode-resource.vscode-cdn.net/var/folders/7z/0421735x1pn3t6rm196dkkqh0000gn/T/TemporaryItems/NSIRD_screencaptureui_7Kh7zb/Screenshot%202022-07-21%20at%205.34.16%20PM.png?version%3D1658396073913)
+
+### Dashboard
+
+it will display all out projects in a list.
+
+### Board
+
+Create a new card ,delete or move from todo to inprogress or completed components.
