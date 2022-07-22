@@ -48,6 +48,7 @@ visual,productive, and rewarding way. From brainstorm to planning to execution, 
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/44399805/180336486-bdb02a56-8f38-478a-b860-a163595710a3.gif)
 
+reference from: https://github.com/anhsirk0/slider-login-signup
 
 ### Dashboard
 
