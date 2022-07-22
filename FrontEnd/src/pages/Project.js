@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import TodoList from "../components/Project/TodoList";
 import { useSelector, useDispatch } from "react-redux";
 import { getThingsDoneActions } from "../store/getThingsDone";
-import InProgress from "../components/Project/InProgress";
-import Completed from "../components/Project/Completed";
-import Modal from "../components/Modal";
+
 import CardModal from "../components/Project/Project_Modals/CardModal";
 import EditCardModal from "../components/Project/Project_Modals/EditCardModal";
+import ListOfCards from "../components/Project/ListOfCards";
+
+// import TodoList from "../components/toDelete/TodoList";
+// import InProgress from "../components/toDelete/InProgress";
+// import Completed from "../components/toDelete/Completed";
+// import Modal from "../components/Modal";
 
 const Project = (props) => {
   const dispatch = useDispatch();
@@ -18,8 +21,6 @@ const Project = (props) => {
     (state) => state.getThingsDone.buttonToggle
   );
   const ListsOfCards = ["toDo", "inProgress", "complete"];
-
-  const storeToDoList = useSelector((state) => state.getThingsDone.toDoList);
 
   const token = localStorage.getItem("token");
 
@@ -68,8 +69,6 @@ const Project = (props) => {
               default:
                 console.log("list error");
             }
-
-            // navigate("/dashboard");
           }
           if (data.status === "error") {
             console.log("got error");
@@ -79,7 +78,6 @@ const Project = (props) => {
               })
             );
           }
-          // setToDoCards(data);
         })
         .catch((error) => {
           console.log("Connection Error", error.message);
@@ -87,10 +85,16 @@ const Project = (props) => {
     }
   }, [storeButtonToggle]);
 
-  const handleRemove = (index) => {
-    const newList = props.tasks.filter((d, i) => i !== index);
-    props.setTasks(newList);
-  };
+  let list = [];
+  for (let i = 0; i < ListsOfCards.length; i++) {
+    list.push(
+      <ListOfCards
+        boardId={id}
+        status={ListsOfCards[i]}
+        nextStatus={ListsOfCards[i + 1]}
+      />
+    );
+  }
 
   return (
     <div>
@@ -101,9 +105,22 @@ const Project = (props) => {
         <div className="grid grid-cols-3 gap-6 mt-4 w-full">
           <EditCardModal boardId={id} />
           <CardModal boardId={id} />
-          <TodoList boardId={id} />
-          <InProgress boardId={id} />
-          <Completed boardId={id} />
+          {list}
+          {/* <TodoList
+            boardId={id}
+            status={ListsOfCards[0]}
+            nextStatus={ListsOfCards[1]}
+          />
+          <InProgress
+            boardId={id}
+            status={ListsOfCards[1]}
+            nextStatus={ListsOfCards[2]}
+          />
+          <Completed
+            boardId={id}
+            status={ListsOfCards[2]}
+            nextStatus={ListsOfCards[3]}
+          /> */}
         </div>
       </div>
     </div>

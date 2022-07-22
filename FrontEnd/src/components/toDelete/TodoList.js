@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getThingsDoneActions } from "../../store/getThingsDone";
-import Modal from "../../components/Modal";
+import Modal from "../Modal";
 
 const TodoList = (props) => {
   const dispatch = useDispatch();
   const [inputCardTitle, setInputCardTitle] = useState("");
   const storeToDoList = useSelector((state) => state.getThingsDone.toDoList);
-  // console.log(props.tasks);
-  //==list of todolist==/
+  const storeInProgressList = useSelector(
+    (state) => state.getThingsDone.inProgressList
+  );
+  const storeCompletedList = useSelector(
+    (state) => state.getThingsDone.completedList
+  );
 
   const storeButtonToggle = useSelector(
     (state) => state.getThingsDone.buttonToggle
@@ -100,7 +104,7 @@ const TodoList = (props) => {
       body: JSON.stringify({
         cardId: cardId,
         boardId: props.boardId,
-        status: "inProgress",
+        status: props.nextStatus,
       }),
     })
       .then((response) => response.json())
@@ -123,13 +127,6 @@ const TodoList = (props) => {
         console.log("Connection Error", error.message);
       });
   };
-  // useEffect(() => {
-  //   dispatch(
-  //     getThingsDoneActions.openCardModal({
-  //       cardModalDataId: storeToDoList._id,
-  //     })
-  //   );
-  // }, [storeButtonToggle]);
 
   const handleOpenCardModal = (cardId, status) => {
     console.log(cardId);
@@ -174,12 +171,30 @@ const TodoList = (props) => {
               </div>
             </div>
           </form>
-          {storeToDoList.map((d, i) => (
+          {(props.status === "toDo"
+            ? storeToDoList
+            : props.status === "inProgress"
+            ? storeInProgressList
+            : props.status === "complete"
+            ? storeCompletedList
+            : ""
+          ).map((d, i) => (
             <div
               key={i}
               className="rounded overflow-hidden shadow-lg bg-white border-b-4"
             >
-              <div>{storeToDoList._id}</div>
+              <div>
+                {
+                  (props.status === "toDo"
+                    ? storeToDoList
+                    : props.status === "inProgress"
+                    ? storeInProgressList
+                    : props.status === "complete"
+                    ? storeCompletedList
+                    : ""
+                  )._id
+                }
+              </div>
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{d.actionTitle}</div>
                 <p className="text-gray-700 text-base">{d.actionDesc}</p>
