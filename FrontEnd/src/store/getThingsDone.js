@@ -13,10 +13,10 @@ const getThingsDoneSlice = createSlice({
       password: "",
     },
     //============================== Data to Receive
-    // token: {
-    //   access: "",
-    //   refresh: "",
-    // },
+    token: {
+      access: "",
+      refresh: "",
+    },
 
     ////////////////////////////////
     // Registration of New User

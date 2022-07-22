@@ -57,7 +57,7 @@ const Dashboard = () => {
 
   return (
     <div className="bg-blue-700">
-      {JSON.stringify(storeCardModalData)}
+      {/* {JSON.stringify(storeCardModalData)} */}
       <ListOfBoards />
     </div>
   );
