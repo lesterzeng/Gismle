@@ -37,6 +37,7 @@ visual,productive, and rewarding way. From brainstorm to planning to execution, 
 
 
 
+
 ### component model :bulb:
 
 ![Project 3 backend stuff](https://user-images.githubusercontent.com/44399805/180172034-b1b4e020-f482-4ee4-8fa1-577934a4d178.png)
@@ -53,6 +54,8 @@ reference from: https://github.com/anhsirk0/slider-login-signup
 ### Dashboard
 
 it will display all out projects in a list.
+
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/44399805/180339057-c79ce1fa-6c4a-464a-84e0-1a73351c64a7.gif)
 
 ### Board
 
