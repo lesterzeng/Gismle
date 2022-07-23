@@ -83,6 +83,15 @@ const ListOfBoards = (props) => {
       });
   };
 
+  const handleOpenEditBoardModal = (boardId) => {
+    console.log(boardId);
+    dispatch(
+      getThingsDoneActions.openEditBoardModal({
+        boardModalId: boardId,
+      })
+    );
+  };
+
   return (
     <div>
       <div className="h-100 w-full flex items-center justify-center bg-blue-100 font-sans">
@@ -91,24 +100,26 @@ const ListOfBoards = (props) => {
             <h1 className="text-grey-darkest text-3xl font-mono">
               Board Lists
             </h1>
-            <div className="flex mt-4">
-              <input
-                // onChange={(e) => setnewboard(e.target.value)}
-                className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-black bg-zinc-200 font-serif"
-                placeholder="Add Board here"
-                onChange={handleChange}
-                value={inputBoardTitle}
-              />
-              <button
-                type="submit"
-                className="min-w-auto w-14 h-14 bg-red-300 p-2 rounded-full hover:bg-red-500 text-white font-semibold transition-rotation duration-300 hover:-rotate-45 ease-in-out"
-                onClick={() => {
-                  addBoard();
-                }}
-              >
-                Add
-              </button>
-            </div>
+            <form>
+              <div className="flex mt-4">
+                <input
+                  // onChange={(e) => setnewboard(e.target.value)}
+                  className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-black bg-zinc-200 font-serif"
+                  placeholder="Add Board here"
+                  onChange={handleChange}
+                  value={inputBoardTitle}
+                />
+                <button
+                  type="submit"
+                  className="min-w-auto w-14 h-14 bg-red-300 p-2 rounded-full hover:bg-red-500 text-white font-semibold transition-rotation duration-300 hover:-rotate-45 ease-in-out"
+                  onClick={() => {
+                    addBoard();
+                  }}
+                >
+                  Add
+                </button>
+              </div>
+            </form>
           </div>
           {storeAllBoardsInfo.map((board, i) => (
             <div key={board._id}>
@@ -125,7 +136,8 @@ const ListOfBoards = (props) => {
                   <button
                     type="button"
                     data-bs-toggle="modal"
-                    data-bs-target="#exampleModal2"
+                    data-bs-target="#editBoardModal"
+                    onClick={() => handleOpenEditBoardModal(board._id)}
                   >
                     {" "}
                     <svg
@@ -148,7 +160,7 @@ const ListOfBoards = (props) => {
                 <button
                   className="inline-flex items-center px-2 py-1 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium rounded-md"
                   onClick={() => {
-                    navigate(`/cards/${board._id}`);
+                    navigate(`/board/${board._id}`);
                   }}
                 >
                   <svg

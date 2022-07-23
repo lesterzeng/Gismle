@@ -303,6 +303,16 @@ router.patch(
   }
 );
 
+////////////////////////////////
+// Return User Id, name and email
+////////////////////////////////
+
+router.get("/display/users/emailAndName", auth, async (req, res) => {
+  const users = await User.find().select({ _id: 1, name: 1, email: 1 });
+
+  res.json(users);
+});
+
 ///////===== Admin Endpoints =====/////////////////////////////////
 
 ////////////////////////////////

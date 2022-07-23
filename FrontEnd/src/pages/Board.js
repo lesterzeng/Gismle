@@ -3,16 +3,16 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getThingsDoneActions } from "../store/getThingsDone";
 
-import CardModal from "../components/Project/Project_Modals/CardModal";
-import EditCardModal from "../components/Project/Project_Modals/EditCardModal";
-import ListOfCards from "../components/Project/ListOfCards";
+import CardModal from "../components/Board/Board_Modals/CardModal";
+import EditCardModal from "../components/Board/Board_Modals/EditCardModal";
+import ListOfCards from "../components/Board/ListOfCards";
 
 // import TodoList from "../components/toDelete/TodoList";
 // import InProgress from "../components/toDelete/InProgress";
 // import Completed from "../components/toDelete/Completed";
 // import Modal from "../components/Modal";
 
-const Project = (props) => {
+const Board = (props) => {
   const dispatch = useDispatch();
   const storeAllBoardsInfo = useSelector(
     (state) => state.getThingsDone.allBoardsInfo
@@ -127,4 +127,4 @@ const Project = (props) => {
   );
 };
 
-export default Project;
+export default Board;

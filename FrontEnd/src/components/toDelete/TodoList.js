@@ -25,6 +25,10 @@ const TodoList = (props) => {
     setInputCardTitle(e.target.value);
   };
 
+  ////////////////////////////////
+  // Function to Add Card
+  ////////////////////////////////
+
   const addCard = () => {
     fetch(`http://localhost:5000/boards/create/card`, {
       method: "PUT",
@@ -148,9 +152,7 @@ const TodoList = (props) => {
               To Do ᕙ(`▿´)ᕗ
             </h1>
           </div>
-          <form
-          // onSubmit={props.handleTodoTasks}
-          >
+          <form>
             <div className="flex mt-4">
               <input
                 className="shadow  appearance-none border rounded w-full py-2 px-3 h-10 text-grey-darker"

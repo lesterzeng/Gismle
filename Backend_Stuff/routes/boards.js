@@ -132,23 +132,8 @@ currently how members will be displayed as
 router.get("/display/boards/all", auth, async (req, res) => {
   const boards = await Board.find({
     members: { $all: [req.decoded.id] },
-  }).populate({ path: "members", select: "email -_id" });
-  //   for (let i = 0; i < boards.length; i++) {
-  //     let arrayOfStrings = boards[i].members.map((member) => {
-  //       return member["email"];
-  //     });
-
-  //     // boards[i].members.splice(0, boards[i].members.length, ...arrayOfStrings);
-  //     // console.log(arrayOfStrings);
-  //     // console.log(board);
-  //     // boards[i] = {
-  //     //   ...boards[i],
-  //     //   members: arrayOfStrings,
-  //     // };
-  //     // console.log(boards[i].members);
-  //   }
-
-  //   boards.save();
+  });
+  // .populate({ path: "members", select: "email -_id" });
   res.json(boards);
 });
 
@@ -176,18 +161,20 @@ router.patch("/update/board", auth, async (req, res) => {
     }
     let member;
     const newMembers = [];
-    for (let i = 0; i < req.body.members.length; i++) {
-      member = await User.findOne({ email: req.body.members[i] });
-      if (member) {
-        newMembers.push(member._id);
-      } else {
-        return res.json(`${req.body.members[i]} does not exist`);
+    if (req.body.members != null) {
+      for (let i = 0; i < req.body.members.length; i++) {
+        member = await User.findOne({ email: req.body.members[i] });
+        if (member) {
+          newMembers.push(member._id);
+        } else {
+          return res.json(`${req.body.members[i]} does not exist`);
+        }
       }
     }
 
     board.title = req.body.title || board.title;
     board.desc = req.body.desc || board.desc;
-    board.members = newMembers || board.members;
+    // board.members = newMembers || board.members;
     board.updatedBy = req.decoded.id || board.updatedBy;
     const now = Date.now();
     board.updatedAt = now;

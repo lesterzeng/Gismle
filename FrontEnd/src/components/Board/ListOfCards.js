@@ -24,6 +24,10 @@ const ListOfCards = (props) => {
     setInputCardTitle(e.target.value);
   };
 
+  ////////////////////////////////
+  // Function to Add Card
+  ////////////////////////////////
+
   const addCard = () => {
     fetch(`http://localhost:5000/boards/create/card`, {
       method: "PUT",
@@ -57,6 +61,10 @@ const ListOfCards = (props) => {
         console.log("Connection Error", error.message);
       });
   };
+
+  ////////////////////////////////
+  // Function to Delete Card
+  ////////////////////////////////
 
   const deleteCard = (cardId) => {
     fetch(`http://localhost:5000/boards/remove/card`, {
@@ -92,6 +100,10 @@ const ListOfCards = (props) => {
       });
   };
 
+  ////////////////////////////////
+  // Function to move Card to next List
+  ////////////////////////////////
+
   const moveCard = (cardId) => {
     fetch(`http://localhost:5000/boards/update/card`, {
       method: "PATCH",
@@ -108,9 +120,11 @@ const ListOfCards = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
+
         if (!data.status) {
           console.log("Card Moved!", data);
+          console.log(props.nextStatus);
           dispatch(getThingsDoneActions.toggleButtonToggle());
         }
         if (data.status === "error") {
@@ -126,6 +140,9 @@ const ListOfCards = (props) => {
         console.log("Connection Error", error.message);
       });
   };
+  ////////////////////////////////
+  // Function to pass the cardId and Status to the cardModal by store
+  ///////////////////////////////
 
   const handleOpenCardModal = (cardId, status) => {
     console.log(cardId);
@@ -154,9 +171,7 @@ const ListOfCards = (props) => {
             </h1>
           </div>
           {props.status === "toDo" && (
-            <form
-            // onSubmit={props.handleTodoTasks}
-            >
+            <form>
               <div className="flex mt-4">
                 <input
                   className="shadow  appearance-none border rounded w-full py-2 px-3 h-10 text-grey-darker"
@@ -209,29 +224,39 @@ const ListOfCards = (props) => {
               </div>
               <div className=" px-6  pb-2 text-right w-80 float-right">
                 <div className="flex  p-2 w-full justify-center space-x-0">
-                  <button
-                    onClick={() => deleteCard(d._id)}
-                    className="min-w-auto w-15 h-10 bg-red-300 p-2 rounded-l-full hover:bg-red-500  text-white font-semibold  hover:flex-grow transition-all duration-200 ease-in-out"
-                  >
-                    Delete
-                  </button>{" "}
-                  <button
-                    className="min-w-auto w-15 h-10 bg-blue-300 p-2 rounded-none hover:bg-blue-500 text-white font-semibold  hover:flex-grow transition-all duration-200 ease-in-out "
-                    data-bs-toggle="modal"
-                    data-bs-target="#CardModalInfo"
-                    onClick={() =>
-                      handleOpenCardModal(d._id, d.status ? d.status : "")
-                    }
-                  >
-                    {" "}
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => moveCard(d._id)}
-                    className="min-w-auto w-15 h-10 bg-green-300 p-2 rounded-r-full hover:bg-green-500 text-white font-semibold hover:flex-grow transition-all duration-200 ease-in-out"
-                  >
-                    Move
-                  </button>
+                  {props.status === "complete" ? (
+                    <button
+                      class="min-w-auto w-20 h-10 bg-blue-300 p-2 rounded-t-xl hover:bg-blue-500 text-white font-semibold transition-transform hover:-translate-y-2 ease-in-out"
+                      data-bs-toggle="modal"
+                      data-bs-target="#CardModalInfo"
+                      onClick={() => handleOpenCardModal(d._id, d.status)}
+                    >
+                      Info
+                    </button>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => deleteCard(d._id)}
+                        className="min-w-auto w-15 h-10 bg-red-300 p-2 rounded-l-full hover:bg-red-500  text-white font-semibold  hover:flex-grow transition-all duration-200 ease-in-out"
+                      >
+                        Delete
+                      </button>
+                      <button
+                        className="min-w-auto w-15 h-10 bg-blue-300 p-2 rounded-none hover:bg-blue-500 text-white font-semibold  hover:flex-grow transition-all duration-200 ease-in-out "
+                        data-bs-toggle="modal"
+                        data-bs-target="#CardModalInfo"
+                        onClick={() => handleOpenCardModal(d._id, d.status)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => moveCard(d._id)}
+                        className="min-w-auto w-15 h-10 bg-green-300 p-2 rounded-r-full hover:bg-green-500 text-white font-semibold hover:flex-grow transition-all duration-200 ease-in-out"
+                      >
+                        Move
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

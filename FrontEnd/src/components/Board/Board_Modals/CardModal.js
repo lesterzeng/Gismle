@@ -20,17 +20,25 @@ const CardModal = (props) => {
   const token = localStorage.getItem("token");
   const [inputComment, setInputComment] = useState("");
 
-  let data = storeToDoList.filter((obj) => obj._id === storeCardModalId);
+  let selectedCardData = storeToDoList.filter(
+    (obj) => obj._id === storeCardModalId
+  );
 
   switch (storeCardModalStatus) {
     case "toDo":
-      data = storeToDoList.filter((obj) => obj._id === storeCardModalId);
+      selectedCardData = storeToDoList.filter(
+        (obj) => obj._id === storeCardModalId
+      );
       break;
     case "inProgress":
-      data = storeInProgressList.filter((obj) => obj._id === storeCardModalId);
+      selectedCardData = storeInProgressList.filter(
+        (obj) => obj._id === storeCardModalId
+      );
       break;
     case "complete":
-      data = storeCompletedList.filter((obj) => obj._id === storeCardModalId);
+      selectedCardData = storeCompletedList.filter(
+        (obj) => obj._id === storeCardModalId
+      );
       break;
     default:
       console.log("Wrong status");
@@ -39,7 +47,7 @@ const CardModal = (props) => {
   const handleChange = (e) => {
     e.preventDefault();
     setInputComment(e.target.value);
-    console.log(data[0]);
+    console.log(selectedCardData[0]);
   };
 
   const addComment = () => {
@@ -52,7 +60,7 @@ const CardModal = (props) => {
       },
       body: JSON.stringify({
         boardId: props.boardId,
-        cardId: data[0]._id,
+        cardId: selectedCardData[0]._id,
         comment: inputComment,
       }),
     })
@@ -88,7 +96,7 @@ const CardModal = (props) => {
       },
       body: JSON.stringify({
         boardId: props.boardId,
-        cardId: data[0]._id,
+        cardId: selectedCardData[0]._id,
         commentId: commentId,
       }),
     })
@@ -127,6 +135,8 @@ const CardModal = (props) => {
       <div
         className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
         id="CardModalInfo"
+        // data-bs-backdrop="static"
+        // data-bs-keyboard="false"
         tabindex="-1"
         aria-labelledby="CardModalInfoLabel"
         aria-hidden="true"
@@ -142,10 +152,14 @@ const CardModal = (props) => {
               </h5> */}
               <div id="CardModalInfoLabel">
                 <div className="font-bold text-xl mb-2">
-                  {data[0] ? data[0].actionTitle : "No Title"}
+                  {selectedCardData[0]
+                    ? selectedCardData[0].actionTitle
+                    : "No Title"}
                 </div>
                 <p className="text-gray-700 text-base">
-                  {data[0] ? data[0].actionDesc : "No Desc"}
+                  {selectedCardData[0]
+                    ? selectedCardData[0].actionDesc
+                    : "No Desc"}
                 </p>
               </div>
               <button
@@ -157,8 +171,8 @@ const CardModal = (props) => {
             </div>
             <div className="modal-body relative p-4">
               {/* {JSON.stringify(storeCardModalData)} */}
-              {data[0]
-                ? data[0].comments.map((comment, i) => (
+              {selectedCardData[0]
+                ? selectedCardData[0].comments.map((comment, i) => (
                     <div key={i}>
                       <div className=" w-full flex  border-t border-grey-200 shadow-md ">
                         <form className="w-full p-4">
@@ -167,13 +181,15 @@ const CardModal = (props) => {
                               {comment.commentValue}
                             </div>
                           </div>
-                          <button
-                            type="button"
-                            className="px-3 py-2 text-sm text-blue-100 bg-red-600 rounded float-right"
-                            onClick={() => removeComment(comment._id)}
-                          >
-                            Delete
-                          </button>
+                          {storeCardModalStatus !== "complete" && (
+                            <button
+                              type="button"
+                              className="px-3 py-2 text-sm text-blue-100 bg-red-600 rounded float-right"
+                              onClick={() => removeComment(comment._id)}
+                            >
+                              Delete
+                            </button>
+                          )}
                         </form>
                       </div>
                     </div>
@@ -183,30 +199,33 @@ const CardModal = (props) => {
               <br />
               <p>added comment will appear above</p>
             </div>
+            {storeCardModalStatus !== "complete" && (
+              <div className=" w-full flex  border-t border-grey-200 shadow-md ">
+                <form action="" className="w-full p-4">
+                  <div class="mb-2">
+                    <label for="comment" className="text-base text-gray-600">
+                      Add a comment
+                    </label>
+                    <textarea
+                      className="w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
+                      name="comment"
+                      placeholder=""
+                      value={inputComment}
+                      onChange={handleChange}
+                    ></textarea>
+                  </div>
+                  <button
+                    type="button"
+                    className="px-3 py-2 text-sm text-blue-100 bg-blue-600 rounded"
+                    onClick={() => addComment()}
+                  >
+                    Comment
+                  </button>
+                </form>
+              </div>
+            )}
             {/* <div className=" flex flex-wrap items-center justify-end p-4 border-t border-gray-200 "> */}
-            <div className=" w-full flex  border-t border-grey-200 shadow-md ">
-              <form action="" className="w-full p-4">
-                <div class="mb-2">
-                  <label for="comment" className="text-base text-gray-600">
-                    Add a comment
-                  </label>
-                  <textarea
-                    className="w-full h-20 p-2 border rounded focus:outline-none focus:ring-gray-300 focus:ring-1"
-                    name="comment"
-                    placeholder=""
-                    value={inputComment}
-                    onChange={handleChange}
-                  ></textarea>
-                </div>
-                <button
-                  type="button"
-                  className="px-3 py-2 text-sm text-blue-100 bg-blue-600 rounded"
-                  onClick={() => addComment()}
-                >
-                  Comment
-                </button>
-              </form>
-            </div>
+
             {/* </div> */}
             <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md bg-gray-200">
               {" "}

@@ -13,10 +13,10 @@ const getThingsDoneSlice = createSlice({
       password: "",
     },
     //============================== Data to Receive
-    token: {
-      access: "",
-      refresh: "",
-    },
+    // token: {
+    //   access: "",
+    //   refresh: "",
+    // },
 
     ////////////////////////////////
     // Registration of New User
@@ -37,6 +37,7 @@ const getThingsDoneSlice = createSlice({
     ////////////////////////////////
     //============================== Data to Receive
     allBoardsInfo: [],
+    allUsersInfo: [],
 
     ////////////////////////////////
     // Project
@@ -47,6 +48,12 @@ const getThingsDoneSlice = createSlice({
     completedList: [],
 
     buttonToggle: true,
+    ////////////////////////////////
+    // Edit Board Modal
+    ////////////////////////////////
+    boardModalId: "",
+    boardMembers: [],
+
     ////////////////////////////////
     // CardModal
     ////////////////////////////////
@@ -122,6 +129,11 @@ const getThingsDoneSlice = createSlice({
       state.allBoardsInfo = action.payload.allBoardsInfo;
     },
 
+    //============================== Store boards info
+    storeAllUsersInfo(state, action) {
+      state.allUsersInfo = action.payload.allUsersInfo;
+    },
+
     ////////////////////////////////
     // Project
     ////////////////////////////////
@@ -143,23 +155,16 @@ const getThingsDoneSlice = createSlice({
       state.buttonToggle = !state.buttonToggle;
     },
     ////////////////////////////////
+    // Edit Board Modal
+    ////////////////////////////////
+    openEditBoardModal(state, action) {
+      state.boardModalId = action.payload.boardModalId;
+    },
+
+    ////////////////////////////////
     // CardModal
     ////////////////////////////////
 
-    /*
-
-    cardModalData: {
-      id: ""
-      actionTitle: "",
-      actionDesc: "",
-      comments: [],
-      status: "",
-      createdBy: "",
-      updatedBy: "",
-      createdAt: "",
-      updatedAt: "",
-    },
-    */
     openCardModal(state, action) {
       state.cardModalId = action.payload.cardModalId;
       state.cardModalStatus = action.payload.cardModalStatus;
@@ -170,10 +175,8 @@ const getThingsDoneSlice = createSlice({
     // Error Handling
     ////////////////////////////////
     getError(state, action) {
-      console.log("a");
       state.isError = true;
       state.errorMsg = action.payload.errorMsg;
-      console.log("b");
     },
     resetError(state, action) {
       state.isError = false;

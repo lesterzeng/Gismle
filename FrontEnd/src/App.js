@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import LandingPage from "./pages/LandingPage";
-import Project from "./pages/Project";
+// import Project from "./pages/Project";
 import Dashboard from "./pages/Dashboard";
 import AboutUs from "./components/aboutUs/AboutUs";
 import ErrorModal from "./components/ErrorModal";
 import { useSelector } from "react-redux";
 import Modal from "./components/Modal";
 import Modal2 from "./components/Modal2";
+import Board from "./pages/Board";
 
 function App() {
   // const [newMemberData, setNewMemberData] = useState("");
@@ -57,7 +58,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate replace to="/landingpage" />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/cards/:id" element={<Project />} />
+            <Route path="/board/:id" element={<Board />} />
             <Route
               path="/aboutus"
               element={
