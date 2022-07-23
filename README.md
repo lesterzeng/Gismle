@@ -39,8 +39,8 @@ visual,productive, and rewarding way. From brainstorm to planning to execution, 
 
 
 ### component model :bulb:
+![Project 3 backend stuff](https://user-images.githubusercontent.com/44399805/180625949-e63ee2f9-3898-400b-9c78-26cdb462482d.png)
 
-![Project 3 backend stuff](https://user-images.githubusercontent.com/44399805/180172034-b1b4e020-f482-4ee4-8fa1-577934a4d178.png)
 
 
 ## Getting Started
