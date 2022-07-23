@@ -24,10 +24,6 @@ const ListOfCards = (props) => {
     setInputCardTitle(e.target.value);
   };
 
-  ////////////////////////////////
-  // Function to Add Card
-  ////////////////////////////////
-
   const addCard = () => {
     fetch(`http://localhost:5000/boards/create/card`, {
       method: "PUT",
@@ -62,10 +58,6 @@ const ListOfCards = (props) => {
       });
   };
 
-  ////////////////////////////////
-  // Function to Delete Card
-  ////////////////////////////////
-
   const deleteCard = (cardId) => {
     fetch(`http://localhost:5000/boards/remove/card`, {
       method: "DELETE",
@@ -99,10 +91,6 @@ const ListOfCards = (props) => {
         console.log("Connection Error", error.message);
       });
   };
-
-  ////////////////////////////////
-  // Function to move Card to next List
-  ////////////////////////////////
 
   const moveCard = (cardId) => {
     fetch(`http://localhost:5000/boards/update/card`, {
@@ -140,9 +128,6 @@ const ListOfCards = (props) => {
         console.log("Connection Error", error.message);
       });
   };
-  ////////////////////////////////
-  // Function to pass the cardId and Status to the cardModal by store
-  ///////////////////////////////
 
   const handleOpenCardModal = (cardId, status) => {
     console.log(cardId);

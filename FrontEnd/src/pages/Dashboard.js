@@ -71,7 +71,6 @@ const Dashboard = () => {
               allUsersInfo: data,
             })
           );
-          // console.log(data);
         }
         if (data.status === "error") {
           console.log("got error");
@@ -89,7 +88,6 @@ const Dashboard = () => {
 
   return (
     <div className="bg-blue-700">
-      {/* {JSON.stringify(storeCardModalData)} */}
       <EditBoardModal />
       <ListOfBoards />
     </div>

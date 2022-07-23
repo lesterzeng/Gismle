@@ -7,11 +7,6 @@ import CardModal from "../components/Board/Board_Modals/CardModal";
 import EditCardModal from "../components/Board/Board_Modals/EditCardModal";
 import ListOfCards from "../components/Board/ListOfCards";
 
-// import TodoList from "../components/toDelete/TodoList";
-// import InProgress from "../components/toDelete/InProgress";
-// import Completed from "../components/toDelete/Completed";
-// import Modal from "../components/Modal";
-
 const Board = (props) => {
   const dispatch = useDispatch();
   const storeAllBoardsInfo = useSelector(
@@ -101,26 +96,14 @@ const Board = (props) => {
       <div className="text-sky-500 text-5xl">
         {boardsInfo[0] && boardsInfo[0].title}
       </div>
+      <div className="text-teal-600 text-3xl">
+        {boardsInfo[0] && boardsInfo[0].desc}
+      </div>
       <div>
         <div className="grid grid-cols-3 gap-6 mt-4 w-full">
           <EditCardModal boardId={id} />
           <CardModal boardId={id} />
           {list}
-          {/* <TodoList
-            boardId={id}
-            status={ListsOfCards[0]}
-            nextStatus={ListsOfCards[1]}
-          />
-          <InProgress
-            boardId={id}
-            status={ListsOfCards[1]}
-            nextStatus={ListsOfCards[2]}
-          />
-          <Completed
-            boardId={id}
-            status={ListsOfCards[2]}
-            nextStatus={ListsOfCards[3]}
-          /> */}
         </div>
       </div>
     </div>

@@ -182,30 +182,6 @@ const getThingsDoneSlice = createSlice({
       state.isError = false;
       state.errorMsg = "";
     },
-    //========================== Fetch
-    // useFetchUserLogin(state) {
-    //   fetch("http://localhost:5000/users/login", {
-    //     method: "post",
-    //     headers: {
-    //       Accept: "application/json",
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(state.loginData),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       if (data.status === "error") {
-    //         console.log("error found");
-    //         console.log(data.status);
-    //         console.log(data.message);
-    //         state.isError = true;
-    //         state.errorMsg = data.message;
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       console.log("Connection Error", error.message);
-    //     });
-    // },
   },
 });
 
