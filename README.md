@@ -29,6 +29,13 @@ visual,productive, and rewarding way. From brainstorm to planning to execution, 
 |             |cors             |
 |             |nodemon          |
 
+## General Approach
+
+We took the vertical approach, where 1 person focus on the backend and 2 people focus on the frontend but we help each other if there were any difficulty in the backend or frontend.
+After creating the required pages and components for the frontend and creating the required endpoints for the backend, we tried to connect the frontend and backend together via fetching. 
+
+we tried mapping the list of boards after fetching the data from the backend and also attaching a delete button for each board to return the boardId so the endpoint knows what board to delete. we do similar fetching technique for the cards and comments.
+
 ## Installation Instruction
 
 - Download the `Project-3---Gina-Ismail-Lester-main` folder
@@ -72,9 +79,6 @@ if got existing email/ password does not match
 
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/44399805/180629693-3b218b88-4b3c-4abb-8a1d-5f92f7703021.gif)
 
-reference for the sliding sign in/ sign up page from: https://github.com/anhsirk0/slider-login-signup
-Website used for making the gif: https://ezgif.com/
-
 
 ### Dashboard (List of Boards)
 
@@ -99,36 +103,14 @@ Adding/ Deleting/ Editing/ Moving of Cards
 ![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/44399805/180639839-baa545f0-dd59-42cc-a763-43c51dbbd224.gif)
 
 
-
-
-After Logging in, they will be directed to the Dashboard where the List of Boards
-
-### component model :bulb:
+## component model :bulb:
 ![Project 3 backend stuff](https://user-images.githubusercontent.com/44399805/180625949-e63ee2f9-3898-400b-9c78-26cdb462482d.png)
 
+## unsolved problems or major hurdles
 
-### Approach Taken in Backend
+- did not manage to add/delete members to a board
 
-#### Plan out the User and Board Schema
-
-- many-to-many schema design
-  - Each user have multiple of boards and each board can have multiple of users
-
-- Data in User Schema
-  - email, hash, name, isAdmin, created
-  => in-progress...
-
-- Data in Board Schema
-=> in-progress...
-
-#### Plan out the User and Board Schema
-
-=> in-progress...
-
-
-### Approach to Frontend
-
-- Draw out the Component Models
-- 
-=> in-progress...
-
+## reference
+- sliding sign in/ sign up page from: https://github.com/anhsirk0/slider-login-signup
+- Website used for making the gif: https://ezgif.com/
+- MongoDB schema design: https://www.youtube.com/watch?v=QAqK-R9HUhc
