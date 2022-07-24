@@ -89,7 +89,7 @@ Adding/ Deleting/ Editing of Boards
 ### Board (List of Cards x3)
 
 
-When the user starts the app, they will be directed to the landing page. the landing page shows the sign up page when the landing page finish loading. If the user does not have an account they can register an account by clicking on the sign up button after filling in the neccesary information and can proceed to clicking the sign in button to move to the sign in page to login afterwards. If they already have an account, they can directly click on the sign in button to login.
+
 
 After Logging in, they will be directed to the Dashboard where the List of Boards
 
