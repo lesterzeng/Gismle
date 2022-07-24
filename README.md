@@ -15,8 +15,6 @@ visual,productive, and rewarding way. From brainstorm to planning to execution, 
 - Each Card starts as toDo as default and can move to inProgress then lastly to complete
 - User able to store/view multiple Boards that have the user listed as on of the members
 
-
-
 ## Technologies Used
 
 |Frontend     |Backend          |
@@ -56,6 +54,31 @@ visual,productive, and rewarding way. From brainstorm to planning to execution, 
 
 ## User Stories
 
+### Landing Page (Register/Login)
+
+successfully register and login
+- after successful login, the user will be directed to the Dashboard, where the user will see a list of boards
+
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/44399805/180629510-fdae5495-3e2f-424c-bfcb-f3982f62e869.gif)
+
+if got existing email/ password does not match
+- for sign up
+  - if there is an existing email, an error modal will pop up with "email already exist" message
+  - if the password does not match, an error modal will pop up "password does not match" message
+  - if the required inputs are empty, an error modal will pop up "Please re-enter your inputs" message
+- for sign in
+  - if the email does not exist, an error modal will pop up "username does not exist" message
+  - if the password is wrong, an error modal will pop up "login failed" message
+
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/44399805/180629693-3b218b88-4b3c-4abb-8a1d-5f92f7703021.gif)
+
+reference from: https://github.com/anhsirk0/slider-login-signup
+
+
+### Dashboard (List of Boards)
+
+
+
 When the user starts the app, they will be directed to the landing page. the landing page shows the sign up page when the landing page finish loading. If the user does not have an account they can register an account by clicking on the sign up button after filling in the neccesary information and can proceed to clicking the sign in button to move to the sign in page to login afterwards. If they already have an account, they can directly click on the sign in button to login.
 
 After Logging in, they will be directed to the Dashboard where the List of Boards
@@ -65,20 +88,4 @@ After Logging in, they will be directed to the Dashboard where the List of Board
 
 
 
-## Getting Started
 
-### signup / login Page
-
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/44399805/180336486-bdb02a56-8f38-478a-b860-a163595710a3.gif)
-
-reference from: https://github.com/anhsirk0/slider-login-signup
-
-### Dashboard
-
-it will display all out projects in a list.
-
-![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/44399805/180339057-c79ce1fa-6c4a-464a-84e0-1a73351c64a7.gif)
-
-### Board
-
-Create a new card ,delete or move from todo to inprogress or completed components.
