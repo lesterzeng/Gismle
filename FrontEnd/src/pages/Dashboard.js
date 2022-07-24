@@ -56,35 +56,35 @@ const Dashboard = () => {
       });
   }, [storeButtonToggle]);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/users/display/users/emailAndName", {
-      headers: {
-        authorization: "Bearer " + token,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (!data.status) {
-          console.log("User data obtained!");
-          dispatch(
-            getThingsDoneActions.storeAllUsersInfo({
-              allUsersInfo: data,
-            })
-          );
-        }
-        if (data.status === "error") {
-          console.log("got error");
-          dispatch(
-            getThingsDoneActions.getError({
-              errorMsg: data.message,
-            })
-          );
-        }
-      })
-      .catch((error) => {
-        console.log("Connection Error", error.message);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/users/display/users/emailAndName", {
+  //     headers: {
+  //       authorization: "Bearer " + token,
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (!data.status) {
+  //         console.log("User data obtained!");
+  //         dispatch(
+  //           getThingsDoneActions.storeAllUsersInfo({
+  //             allUsersInfo: data,
+  //           })
+  //         );
+  //       }
+  //       if (data.status === "error") {
+  //         console.log("got error");
+  //         dispatch(
+  //           getThingsDoneActions.getError({
+  //             errorMsg: data.message,
+  //           })
+  //         );
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log("Connection Error", error.message);
+  //     });
+  // }, []);
 
   return (
     <div className="bg-blue-700">

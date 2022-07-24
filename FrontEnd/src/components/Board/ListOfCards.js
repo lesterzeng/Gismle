@@ -43,6 +43,7 @@ const ListOfCards = (props) => {
         if (!data.status) {
           console.log("Card Created!", data);
           dispatch(getThingsDoneActions.toggleButtonToggle());
+          setInputCardTitle("");
         }
         if (data.status === "error") {
           console.log("got error");
@@ -156,27 +157,27 @@ const ListOfCards = (props) => {
             </h1>
           </div>
           {props.status === "toDo" && (
-            <form>
-              <div className="flex mt-4">
-                <input
-                  className="shadow  appearance-none border rounded w-full py-2 px-3 h-10 text-grey-darker"
-                  placeholder="Add Tasks Here.."
-                  onChange={handleChange}
-                  value={inputCardTitle}
-                />
-                <br></br>
+            // <form>
+            <div className="flex mt-4">
+              <input
+                className="shadow  appearance-none border rounded w-full py-2 px-3 h-10 text-grey-darker"
+                placeholder="Add Tasks Here.."
+                onChange={handleChange}
+                value={inputCardTitle}
+              />
+              <br></br>
 
-                <div className="flex bg-transparent pb-4 pr-1 pl-2 w-50 justify-center space-x-10 float-right rounded">
-                  <button
-                    type="submit"
-                    onClick={addCard}
-                    class="min-w-auto w-10 h-10 bg-orange-300 text-xs rounded-full hover:bg-orange-500 text-white font-semibold transition-rotation duration-300 hover:rotate-45 ease-in-out"
-                  >
-                    Add
-                  </button>
-                </div>
+              <div className="flex bg-transparent pb-4 pr-1 pl-2 w-50 justify-center space-x-10 float-right rounded">
+                <button
+                  // type="button"
+                  onClick={() => addCard()}
+                  className="min-w-auto w-10 h-10 bg-orange-300 text-xs rounded-full hover:bg-orange-500 text-white font-semibold transition-rotation duration-300 hover:rotate-45 ease-in-out"
+                >
+                  Add
+                </button>
               </div>
-            </form>
+            </div>
+            // </form>
           )}
 
           {(props.status === "toDo"
