@@ -321,9 +321,9 @@ router.patch("/update/card", auth, async (req, res) => {
       },
       {
         $set: {
-          "activeCards.$.actionTitle": req.body.actionTitle,
-          "activeCards.$.actionDesc": req.body.actionDesc,
-          "activeCards.$.status": req.body.status,
+          "activeCards.$.actionTitle": req.body.actionTitle || this.actionTitle,
+          "activeCards.$.actionDesc": req.body.actionDesc || this.actionDesc,
+          "activeCards.$.status": req.body.status || this.status,
         },
       },
 
