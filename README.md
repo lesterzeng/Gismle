@@ -78,6 +78,15 @@ Website used for making the gif: https://ezgif.com/
 
 ### Dashboard (List of Boards)
 
+Adding/ Deleting/ Editing of Boards
+- the user can enter the title of the board and create a new board which the user can edit the title and description of board via the edit button
+- The user can delete the board via the delete button
+- The user can view more info regarding the board via the view button which will direct user to the board page specific to the board the user click
+
+
+![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/44399805/180630564-45f866c0-afd7-497e-bb04-6d976f127a7a.gif)
+
+### Board (List of Cards x3)
 
 
 When the user starts the app, they will be directed to the landing page. the landing page shows the sign up page when the landing page finish loading. If the user does not have an account they can register an account by clicking on the sign up button after filling in the neccesary information and can proceed to clicking the sign in button to move to the sign in page to login afterwards. If they already have an account, they can directly click on the sign in button to login.
