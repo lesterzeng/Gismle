@@ -72,7 +72,8 @@ if got existing email/ password does not match
 
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/44399805/180629693-3b218b88-4b3c-4abb-8a1d-5f92f7703021.gif)
 
-reference from: https://github.com/anhsirk0/slider-login-signup
+reference for the sliding sign in/ sign up page from: https://github.com/anhsirk0/slider-login-signup
+Website used for making the gif: https://ezgif.com/
 
 
 ### Dashboard (List of Boards)
