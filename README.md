@@ -79,7 +79,7 @@ Website used for making the gif: https://ezgif.com/
 ### Dashboard (List of Boards)
 
 Adding/ Deleting/ Editing of Boards
-- the user can enter the title of the board and create a new board which the user can edit the title and description of board via the edit button
+- the user needs to input the title of the new board to create a new board which the user can edit the title and description of board via the edit button
 - The user can delete the board via the delete button
 - The user can view more info regarding the board via the view button which will direct user to the board page specific to the board the user click
 
@@ -87,6 +87,16 @@ Adding/ Deleting/ Editing of Boards
 ![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/44399805/180630564-45f866c0-afd7-497e-bb04-6d976f127a7a.gif)
 
 ### Board (List of Cards x3)
+
+Adding/ Deleting/ Editing/ Moving of Cards
+- the user needs to input the title of the new card to create a new card
+- there is a delete, edit and move button on the newly created card and it is under the To Do list
+  - the delete button will delete the card and cards can be delted only in the To Do or In Progress list
+  - the edit button will enable a modal to pop up which allow the user to input comments specific to the card, comments can also be deleted
+    - the 'edit card info' button will enable user to edit the title and description of the card
+  - the move button will move card to the next stage until it reaches the completed list
+
+![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/44399805/180639839-baa545f0-dd59-42cc-a763-43c51dbbd224.gif)
 
 
 
@@ -97,5 +107,28 @@ After Logging in, they will be directed to the Dashboard where the List of Board
 ![Project 3 backend stuff](https://user-images.githubusercontent.com/44399805/180625949-e63ee2f9-3898-400b-9c78-26cdb462482d.png)
 
 
+### Approach Taken in Backend
 
+#### Plan out the User and Board Schema
+
+- many-to-many schema design
+  - Each user have multiple of boards and each board can have multiple of users
+
+- Data in User Schema
+  - email, hash, name, isAdmin, created
+  => in-progress...
+
+- Data in Board Schema
+=> in-progress...
+
+#### Plan out the User and Board Schema
+
+=> in-progress...
+
+
+### Approach to Frontend
+
+- Draw out the Component Models
+- 
+=> in-progress...
 
