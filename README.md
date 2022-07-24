@@ -33,7 +33,26 @@ visual,productive, and rewarding way. From brainstorm to planning to execution, 
 
 ## Installation Instruction
 
-- 
+- Download the `Project-3---Gina-Ismail-Lester-main` folder
+- create `.env` file inside the Backend_Stuff folder
+  - enter PORT, DATABASE_URL, ACCESS_SECRET and REFRESH_SECRET inside the  `.env` file
+    - i.e. 
+      - PORT=5000
+      - DATABASE_URL=mongodb://127.0.0.1:27017/GA_SEI_Project_3
+      - ACCESS_SECRET='90b9d97955ce052120eff64f89dbe7be34007f5bbe17cf29fa4eccb20710d591eb83c37905128dadbeebd9824d385bd4223af38b6553d1a6840568db08bc927c'
+      - REFRESH_SECRET='ca168c436414349734121b84ebc2a47eff9bce78a94983b9ba19107b4a7ee0c661d9a5a35dda68bb726abb0076e03750d8e15d607e6a8da1a8ff1e0144b6df9b'
+- open split terminal
+  - 1st terminal 
+    - `cd Backend_Stuff`
+    - `npm i`
+    - `npm run dev`
+  - 2nd terminal
+    - `cd FrontEnd`
+    - `npm i`
+    - `npm start`
+  - Sign up with an Email address and a Password in the react app i.e `studenta@generalassemb.ly` ,  `password12345` respectively
+  - Sign In with registered account
+  - Start using the app
 
 ## User Stories
 
