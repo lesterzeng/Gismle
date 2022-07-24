@@ -4,6 +4,15 @@ import { getThingsDoneActions } from "../../../store/getThingsDone";
 
 const EditCardModal = (props) => {
   const dispatch = useDispatch();
+
+  const storeToDoList = useSelector((state) => state.getThingsDone.toDoList);
+  const storeInProgressList = useSelector(
+    (state) => state.getThingsDone.inProgressList
+  );
+  const storeCompletedList = useSelector(
+    (state) => state.getThingsDone.completedList
+  );
+
   const storeCardModalId = useSelector(
     (state) => state.getThingsDone.cardModalId
   );
@@ -17,6 +26,30 @@ const EditCardModal = (props) => {
   });
 
   const token = localStorage.getItem("token");
+
+  let selectedCardData = storeToDoList.filter(
+    (obj) => obj._id === storeCardModalId
+  );
+
+  switch (storeCardModalStatus) {
+    case "toDo":
+      selectedCardData = storeToDoList.filter(
+        (obj) => obj._id === storeCardModalId
+      );
+      break;
+    case "inProgress":
+      selectedCardData = storeInProgressList.filter(
+        (obj) => obj._id === storeCardModalId
+      );
+      break;
+    case "complete":
+      selectedCardData = storeCompletedList.filter(
+        (obj) => obj._id === storeCardModalId
+      );
+      break;
+    default:
+      console.log("Wrong status");
+  }
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -111,9 +144,9 @@ const EditCardModal = (props) => {
                   className="form-label inline-block mb-2 text-gray-700"
                 >
                   Current Action Title:
-                  {/* {selectedBoardData[0]
-                    ? selectedBoardData[0].title
-                    : "No Title"} */}
+                  {selectedCardData[0]
+                    ? selectedCardData[0].actionTitle
+                    : "No Title"}
                 </label>
                 <input
                   type="text"
@@ -146,9 +179,9 @@ const EditCardModal = (props) => {
                   className="form-label inline-block mb-2 text-gray-700"
                 >
                   Current Action Description:{" "}
-                  {/* {selectedBoardData[0]
-                    ? selectedBoardData[0].desc
-                    : "No Title"} */}
+                  {selectedCardData[0]
+                    ? selectedCardData[0].actionDesc
+                    : "No Description"}
                 </label>
                 <input
                   type="text"
